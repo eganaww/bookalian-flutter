@@ -1,0 +1,41 @@
+import 'package:get/get.dart';
+import 'package:peminjam_perpustakaan_kelas_b/app/routes/app_pages.dart';
+
+class HomeController extends GetxController {
+  //TODO: Implement HomeController
+
+  final count = 0.obs;
+  int selectedIndex = 0;
+  @override
+  void onInit() {
+    super.onInit();
+  }
+
+  @override
+  void onReady() {
+    super.onReady();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+  }
+
+  void increment() => count.value++;
+
+  void changePage(int index){
+    selectedIndex = index;
+    update();
+    switch(index) {
+      case 0 :
+        Get.offAllNamed(Routes.HOME);
+        break;
+      case 1:
+        Get.offAllNamed(Routes.BOOK);
+        break;
+      case 2: 
+        Get.offAllNamed(Routes.PROFILE);
+        break;
+    }
+  }
+}
