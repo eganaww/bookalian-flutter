@@ -5,7 +5,7 @@ import 'package:peminjam_perpustakaan_kelas_b/app/data/constant/endpoint.dart';
 
 import 'package:peminjam_perpustakaan_kelas_b/app/data/provider/api_provider.dart';
 
-import '../../../data/model/response_buku.dart';
+import '../../../data/model/response_book.dart';
 import '../../../routes/app_pages.dart';
 
 class BookController extends GetxController with StateMixin<List<DataBuku>> {
@@ -50,7 +50,7 @@ class BookController extends GetxController with StateMixin<List<DataBuku>> {
     try{
       final response = await ApiProvider.instance().get(Endpoint.book);
       if (response.statusCode == 200) {
-        final ResponseBuku responseBook = ResponseBuku.fromJson(response.data);
+        final ResponseBook responseBook = ResponseBook.fromJson(response.data);
         if(responseBook.data!.isEmpty){
           change(null, status: RxStatus.empty());
         } else {

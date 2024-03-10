@@ -15,6 +15,7 @@ dependencies:
     sdk: flutter
 
   flutter_native_splash: 2.3.7
+  another_carousel_pro: ^1.0.2
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
