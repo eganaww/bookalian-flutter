@@ -26,7 +26,7 @@ class LoginController extends GetxController {
     super.onReady();
     String status = StorageProvider.read(StorageKey.status);
     log("status : $status");
-    if(status == "logged"){
+    if (status == "logged") {
       Get.offAllNamed(Routes.HOME);
     }
   }
@@ -40,17 +40,20 @@ class LoginController extends GetxController {
 
   login() async {
     loading(true);
-    try{
+    try {
       FocusScope.of(Get.context!).unfocus();
-      if(formKey.currentState!.validate()){
+      if (formKey.currentState!.validate()) {
         final response = await ApiProvider.instance().post(Endpoint.login,
-            data: dio.FormData.fromMap(
-                {"Username": usernameController.text.toString(), "Password": passwordController.text.toString()}));
+            data: ({
+              "Username": usernameController.text.toString(),
+              "Password": passwordController.text.toString()
+            }));
         if (response.statusCode == 200) {
           ResponseLogin responseLogin = ResponseLogin.fromJson(response.data);
-          await StorageProvider.write(StorageKey.idUser, responseLogin.data!.userID!.toString());
+          await StorageProvider.write(
+              StorageKey.idUser, responseLogin.data!.userID!.toString());
           await StorageProvider.write(StorageKey.status, "logged");
-          if(responseLogin.data!.role.toString() == 'user') {
+          if (responseLogin.data!.role.toString() == 'user') {
             Get.offAllNamed(Routes.HOME);
           } else {
             Get.offAllNamed(Routes.DASHBOARD);
@@ -58,18 +61,21 @@ class LoginController extends GetxController {
         } else {
           Get.snackbar("Sorry", "Login Gagal", backgroundColor: Colors.orange);
         }
-      }loading(false);
+      }
+      loading(false);
     } on dio.DioException catch (e) {
       loading(false);
-      if(e.response != null) {
-        if(e.response?.data != null){
-          Get.snackbar("Sorry", "${e.response?.data['message']}", backgroundColor: Colors.orange);
+      if (e.response != null) {
+        if (e.response?.data != null) {
+          Get.snackbar("Sorry", "${e.response?.data['message']}",
+              backgroundColor: Colors.orange);
         }
       } else {
         Get.snackbar("Sorry", e.message ?? "", backgroundColor: Colors.red);
       }
-    } catch (e) {loading(false);
-    Get.snackbar("Error", e.toString(), backgroundColor: Colors.red);
+    } catch (e) {
+      loading(false);
+      Get.snackbar("Error", e.toString(), backgroundColor: Colors.red);
     }
   }
 }

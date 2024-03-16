@@ -19,7 +19,7 @@ class ImageConvert {
 
   static Future<Uint8List?> base64ToImage(String base64) async {
     try {
-      Uint8List imageBase64 = base64Decode(base64);
+      var imageBase64 = base64Decode(base64);
       return imageBase64;
     } catch(e) {
       log('Error ketika konversi base64 ke image: $e');

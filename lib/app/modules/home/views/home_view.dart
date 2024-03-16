@@ -17,32 +17,75 @@ class HomeView extends GetView<HomeController> {
       // ),
         body: Column(
           children: [
-            SizedBox(
-              height: 300,
-              width: double.infinity,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10), // Menambahkan border radius
-                child: Container(
-                  margin: EdgeInsets.all(10), // Menambahkan margin
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.grey, // Warna border
-                      width: 1, // Ketebalan border
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      'Beranda',
+                      style: TextStyle(
+                        color: Color(0xff009E60),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30,
+                      ),
                     ),
-                    borderRadius: BorderRadius.circular(10), // Border radius untuk container
                   ),
-                  child: AnotherCarousel(
-                    images: const [
-                      AssetImage("assets/img/Info-1.png"),
-                      AssetImage("assets/img/Info-2.png"),
-                      AssetImage("assets/img/Info-3.png"),
-                    ],
-                    dotSize: 6,
-                    indicatorBgPadding: 5.0,
-                    // Menyesuaikan latar belakang carousel
+                  IconButton(
+                    icon: Icon(Icons.search, color: Colors.green),
+                    onPressed: () {
+                      // Navigasi ke halaman pencarian ketika ikon ditekan
+                      Get.toNamed(Routes.BOOK); // Pastikan Anda memiliki rute bernama 'SEARCH' dalam AppPages
+                    },
+                  ),
+                ],
+              ),
+            ),
+            Column(
+              children: [
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20), // Tambahkan padding di sini
+                      child: Text(
+                        'Informasi',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 300,
+                  width: double.infinity,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10), // Menambahkan border radius
+                    child: Container(
+                      margin: EdgeInsets.all(10), // Menambahkan margin
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey, // Warna border
+                          width: 1, // Ketebalan border
+                        ),
+                        borderRadius: BorderRadius.circular(10), // Border radius untuk container
+                      ),
+                      child: AnotherCarousel(
+                        images: const [
+                          AssetImage("assets/img/Info-1.png"),
+                          AssetImage("assets/img/Info-2.png"),
+                          AssetImage("assets/img/Info-3.png"),
+                        ],
+                        dotSize: 6,
+                        indicatorBgPadding: 5.0,
+                        // Menyesuaikan latar belakang carousel
+                      ),
+                    ),
                   ),
                 ),
-              ),
+              ],
             )
           ],
         ),
