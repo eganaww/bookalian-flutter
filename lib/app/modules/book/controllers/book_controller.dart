@@ -8,7 +8,7 @@ import 'package:peminjam_perpustakaan_kelas_b/app/data/provider/api_provider.dar
 import '../../../data/model/response_book.dart';
 import '../../../routes/app_pages.dart';
 
-class BookController extends GetxController with StateMixin<List<DataBuku>> {
+  class BookController extends GetxController with StateMixin<List<DataBuku>> {
   //TODO: Implement BookController
   int selectedIndex = 1;
 
@@ -48,7 +48,7 @@ class BookController extends GetxController with StateMixin<List<DataBuku>> {
   Future<void> getData() async {
     change(null, status: RxStatus.loading());
     try{
-      final response = await ApiProvider.instance().get(Endpoint.book);
+      final response = await ApiProvider.instance().get(Endpoint.buku);
       if (response.statusCode == 200) {
         final ResponseBook responseBook = ResponseBook.fromJson(response.data);
         if(responseBook.data!.isEmpty){

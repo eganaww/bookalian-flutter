@@ -51,7 +51,7 @@ class LoginController extends GetxController {
         if (response.statusCode == 200) {
           ResponseLogin responseLogin = ResponseLogin.fromJson(response.data);
           await StorageProvider.write(
-              StorageKey.idUser, responseLogin.data!.userID!.toString());
+              StorageKey.UserID, responseLogin.data!.userID!.toString());
           await StorageProvider.write(StorageKey.status, "logged");
           if (responseLogin.data!.role.toString() == 'user') {
             Get.offAllNamed(Routes.HOME);

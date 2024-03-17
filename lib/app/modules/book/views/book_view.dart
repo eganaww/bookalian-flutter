@@ -1,9 +1,6 @@
-import 'dart:convert';
-import 'dart:io';
-
+// BookView.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:peminjam_perpustakaan_kelas_b/app/data/provider/image_convert.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/routes/app_pages.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/widget/base64/base64widget.dart';
 
@@ -35,8 +32,7 @@ class BookView extends GetView<BookController> {
                 IconButton(
                   icon: Icon(Icons.search, color: Colors.green),
                   onPressed: () {
-                    // Navigasi ke halaman pencarian ketika ikon ditekan
-                    Get.toNamed(Routes.BOOK); // Pastikan Anda memiliki rute bernama 'SEARCH' dalam AppPages
+                    Get.toNamed(Routes.BOOK); // Navigasi ke halaman pencarian
                   },
                 ),
               ],
@@ -52,11 +48,16 @@ class BookView extends GetView<BookController> {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {
-                      Get.toNamed(Routes.ADD_PEMINJAMAN,
-                          parameters: {
-                            'id': (state[index].bukuID??0).toString(),
-                            'judul': state[index].judul??"-",
-                          });
+                      // Navigasi ke halaman detail buku dengan mengirim parameter yang diperlukan
+                      Get.toNamed(
+                        Routes.DETAIL_BOOK,
+                        parameters: {
+                          'judul': state![index].judul ?? "-",
+                          'penulis': state[index].penulis ?? "-",
+                          'penerbit': state[index].penerbit ?? "-",
+                          'cover': state[index].cover ?? "",
+                        },
+                      );
                     },
                     child: Container(
                       margin: const EdgeInsets.only(right: 10),
@@ -67,14 +68,15 @@ class BookView extends GetView<BookController> {
                             height: 200,
                             decoration: BoxDecoration(
                               image: DecorationImage(
-                                  image: base64widget(state![index].cover ?? ''),
-                                  fit: BoxFit.cover),
+                                image: base64widget(state![index].cover ?? ''),
+                                fit: BoxFit.cover,
+                              ),
                               borderRadius: BorderRadius.circular(20),
-                              color: Colors.red,
+                              color: Colors.white,
                             ),
                           ),
                           Text(
-                            state![index].judul ?? '',
+                            state[index].judul ?? '',
                             style: TextStyle(fontSize: 12, color: Colors.black),
                           )
                         ],
