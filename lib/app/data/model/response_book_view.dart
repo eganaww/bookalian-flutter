@@ -1,13 +1,13 @@
-/// data : {"bukuid":1,"judul_buku":"Rickey","penulis":"Krystina","penerbit":"Dewitt","tahun_terbit":1974,"created_at":"2024-02-29T05:33:24.000000Z","updated_at":"2024-02-29T05:33:24.000000Z"}
+/// data : {"BukuID":1,"Judul":"Anak-Anak Revolusi","Penulis":"Budiman Sudjatmiko","Penerbit":"Gramedia","TahunTerbit":2013,"Cover":null,"created_at":"2024-03-10T06:41:47.000000Z","updated_at":"2024-03-10T06:41:47.000000Z"}
 
-class ResponseBukuView {
-  ResponseBukuView({
-    this.data,});
+class ResponseBookView {
+  ResponseBookView({
+      this.data,});
 
-  ResponseBukuView.fromJson(dynamic json) {
-    data = json['data'] != null ? DataBukuView.fromJson(json['data']) : null;
+  ResponseBookView.fromJson(dynamic json) {
+    data = json['data'] != null ? DataBookView.fromJson(json['data']) : null;
   }
-  DataBukuView? data;
+  DataBookView? data;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -19,48 +19,53 @@ class ResponseBukuView {
 
 }
 
-/// bukuid : 1
-/// judul_buku : "Rickey"
-/// penulis : "Krystina"
-/// penerbit : "Dewitt"
-/// tahun_terbit : 1974
-/// created_at : "2024-02-29T05:33:24.000000Z"
-/// updated_at : "2024-02-29T05:33:24.000000Z"
+/// BukuID : 1
+/// Judul : "Anak-Anak Revolusi"
+/// Penulis : "Budiman Sudjatmiko"
+/// Penerbit : "Gramedia"
+/// TahunTerbit : 2013
+/// Cover : null
+/// created_at : "2024-03-10T06:41:47.000000Z"
+/// updated_at : "2024-03-10T06:41:47.000000Z"
 
-class DataBukuView {
-  DataBukuView({
-    this.bukuid,
-    this.judulBuku,
-    this.penulis,
-    this.penerbit,
-    this.tahunTerbit,
-    this.createdAt,
-    this.updatedAt,});
+class DataBookView {
+  DataBookView({
+      this.bukuID, 
+      this.judul, 
+      this.penulis, 
+      this.penerbit, 
+      this.tahunTerbit, 
+      this.cover, 
+      this.createdAt, 
+      this.updatedAt,});
 
-  DataBukuView.fromJson(dynamic json) {
-    bukuid = json['bukuid'];
-    judulBuku = json['judul_buku'];
-    penulis = json['penulis'];
-    penerbit = json['penerbit'];
-    tahunTerbit = json['tahun_terbit'];
+  DataBookView.fromJson(dynamic json) {
+    bukuID = json['BukuID'];
+    judul = json['Judul'];
+    penulis = json['Penulis'];
+    penerbit = json['Penerbit'];
+    tahunTerbit = json['TahunTerbit'];
+    cover = json['Cover'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
   }
-  int? bukuid;
-  String? judulBuku;
+  int? bukuID;
+  String? judul;
   String? penulis;
   String? penerbit;
   int? tahunTerbit;
+  dynamic cover;
   String? createdAt;
   String? updatedAt;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    map['bukuid'] = bukuid;
-    map['judul_buku'] = judulBuku;
-    map['penulis'] = penulis;
-    map['penerbit'] = penerbit;
-    map['tahun_terbit'] = tahunTerbit;
+    map['BukuID'] = bukuID;
+    map['Judul'] = judul;
+    map['Penulis'] = penulis;
+    map['Penerbit'] = penerbit;
+    map['TahunTerbit'] = tahunTerbit;
+    map['Cover'] = cover;
     map['created_at'] = createdAt;
     map['updated_at'] = updatedAt;
     return map;

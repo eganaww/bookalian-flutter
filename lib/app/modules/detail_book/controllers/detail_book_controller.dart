@@ -9,13 +9,14 @@ import 'package:peminjam_perpustakaan_kelas_b/app/data/provider/api_provider.dar
 import '../../../data/model/response_book.dart';
 import '../../../routes/app_pages.dart';
 
-class DetailBookController extends GetxController with StateMixin<List<DataBuku>> {
+class DetailBookController extends GetxController with StateMixin<DataBookView> {
   //TODO: Implement DetailBookController
 
   final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
+    getData();
   }
 
   @override
@@ -33,14 +34,15 @@ class DetailBookController extends GetxController with StateMixin<List<DataBuku>
   Future<void> getData() async {
     change(null, status: RxStatus.loading());
     var idBuku = Get.parameters['id'];
+    print(idBuku);
     try {
       final response = await ApiProvider.instance().get("${Endpoint.buku}/$idBuku");
       if (response.statusCode == 200) {
-        final ResponseBukuView responseBook = ResponseBukuView.fromJson(response.data);
+        final ResponseBookView responseBook = ResponseBookView.fromJson(response.data);
         if(responseBook.data == null){
           change(null, status:  RxStatus.empty());
         } else {
-          change(responseBook.data as List<DataBuku>?, status: RxStatus.success());
+          change(responseBook.data, status: RxStatus.success());
         }
       } else {
         change(null, status: RxStatus.error("Gagal mengambil data"));

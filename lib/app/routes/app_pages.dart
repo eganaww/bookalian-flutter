@@ -10,6 +10,8 @@ import '../modules/detail_book/bindings/detail_book_binding.dart';
 import '../modules/detail_book/views/detail_book_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/invoice/bindings/invoice_binding.dart';
+import '../modules/invoice/views/invoice_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/peminjaman/bindings/peminjaman_binding.dart';
@@ -78,6 +80,11 @@ class AppPages {
       name: _Paths.DETAIL_BOOK,
       page: () => const DetailBookView(),
       binding: DetailBookBinding(),
+    ),
+    GetPage(
+      name: _Paths.INVOICE,
+      page: () => const InvoiceView(),
+      binding: InvoiceBinding(),
     ),
   ];
 }

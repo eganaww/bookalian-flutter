@@ -52,10 +52,7 @@ class BookView extends GetView<BookController> {
                       Get.toNamed(
                         Routes.DETAIL_BOOK,
                         parameters: {
-                          'judul': state![index].judul ?? "-",
-                          'penulis': state[index].penulis ?? "-",
-                          'penerbit': state[index].penerbit ?? "-",
-                          'cover': state[index].cover ?? "",
+                          'id': state![index].bukuID.toString(),
                         },
                       );
                     },
