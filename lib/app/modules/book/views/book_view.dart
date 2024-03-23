@@ -32,7 +32,7 @@ class BookView extends GetView<BookController> {
                 IconButton(
                   icon: Icon(Icons.search, color: Colors.green),
                   onPressed: () {
-                    Get.toNamed(Routes.BOOK); // Navigasi ke halaman pencarian
+                    Get.toNamed(Routes.SEARCH); // Navigasi ke halaman pencarian
                   },
                 ),
               ],
@@ -43,52 +43,115 @@ class BookView extends GetView<BookController> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: controller.obx((state) => ListView.builder(
-                itemCount: state?.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: () {
-                      // Navigasi ke halaman detail buku dengan mengirim parameter yang diperlukan
-                      Get.toNamed(
-                        Routes.DETAIL_BOOK,
-                        parameters: {
-                          'id': state![index].bukuID.toString(),
+                    itemCount: state?.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          // Navigasi ke halaman detail buku dengan mengirim parameter yang diperlukan
+                          Get.toNamed(
+                            Routes.DETAIL_BOOK,
+                            parameters: {
+                              'id': state![index].bukuID.toString(),
+                            },
+                          );
                         },
+                        child: Container(
+                          margin: const EdgeInsets.only(right: 10),
+                          child: Column(
+                            children: [
+                              Container(
+                                width: 120,
+                                height: 200,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image:
+                                        base64widget(state![index].cover ?? ''),
+                                    fit: BoxFit.cover,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                state[index].judul ?? '',
+                                style: TextStyle(
+                                    fontSize: 12, color: Colors.black),
+                              )
+                            ],
+                          ),
+                        ),
                       );
                     },
-                    child: Container(
-                      margin: const EdgeInsets.only(right: 10),
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 160,
-                            height: 200,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: base64widget(state![index].cover ?? ''),
-                                fit: BoxFit.cover,
-                              ),
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.white,
-                            ),
-                          ),
-                          Text(
-                            state[index].judul ?? '',
-                            style: TextStyle(fontSize: 12, color: Colors.black),
-                          )
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              )),
+                  )),
             ),
           ),
+          // controller.obx((state) => ListView.builder(
+          //       itemCount: state?.length,
+          //       scrollDirection: Axis.vertical,
+          //       itemBuilder: (BuildContext context, int index) {
+          //         return Container(
+          //           child: Column(
+          //             children: [
+          //               Text(state[index].kategori_bukus.namaKategori),
+          //               Container(
+          //                 height: 240,
+          //                 child: Padding(
+          //                   padding: const EdgeInsets.all(8.0),
+          //                   child: controller.obx((state) => ListView.builder(
+          //                     itemCount: state?.length,
+          //                     scrollDirection: Axis.horizontal,
+          //                     itemBuilder: (context, index) {
+          //                       return InkWell(
+          //                         onTap: () {
+          //                           // Navigasi ke halaman detail buku dengan mengirim parameter yang diperlukan
+          //                           Get.toNamed(
+          //                             Routes.DETAIL_BOOK,
+          //                             parameters: {
+          //                               'id': state![index].bukuID.toString(),
+          //                             },
+          //                           );
+          //                         },
+          //                         child: Container(
+          //                           margin: const EdgeInsets.only(right: 10),
+          //                           child: Column(
+          //                             children: [
+          //                               Container(
+          //                                 width: 120,
+          //                                 height: 200,
+          //                                 decoration: BoxDecoration(
+          //                                   image: DecorationImage(
+          //                                     image:
+          //                                     base64widget(state![index].cover ?? ''),
+          //                                     fit: BoxFit.cover,
+          //                                   ),
+          //                                   borderRadius: BorderRadius.circular(10),
+          //                                   color: Colors.white,
+          //                                 ),
+          //                               ),
+          //                               Text(
+          //                                 state[index].judul ?? '',
+          //                                 style: TextStyle(
+          //                                     fontSize: 12, color: Colors.black),
+          //                               )
+          //                             ],
+          //                           ),
+          //                         ),
+          //                       );
+          //                     },
+          //                   )),
+          //                 ),
+          //               )
+          //             ],
+          //           ),
+          //         );
+          //       },
+          //     ))
         ],
       ),
       bottomNavigationBar: GetBuilder<HomeController>(
         init: HomeController(),
-        builder: (controller){
+        builder: (controller) {
           return BottomNavigationBar(
             backgroundColor: Colors.white,
             selectedItemColor: Colors.green,
@@ -96,7 +159,7 @@ class BookView extends GetView<BookController> {
             selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
             unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
             currentIndex: controller.selectedIndex,
-            onTap: (index){
+            onTap: (index) {
               controller.changePage(index);
             },
             items: [

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:peminjam_perpustakaan_kelas_b/app/routes/app_pages.dart';
 
 import '../controllers/invoice_controller.dart';
 
@@ -88,17 +89,24 @@ class InvoiceView extends GetView<InvoiceController> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text("Tanggal Pengembalian"),
+                              Text("Tanggal Pengembcmdalian"),
                               Text(Get.parameters['tgl_pengembalian']??''),
                             ],
                           ),
                         ],
                       ),
-                    )
+                    ),
+
                   ],
                 ),
               ),
-            )
+            ),Container(
+              child: ElevatedButton(onPressed: () {
+                Get.offAllNamed(Routes.BOOK);
+              }, child: Text('Kembali')
+
+              ),
+            ),
           ],
         ),
       ),

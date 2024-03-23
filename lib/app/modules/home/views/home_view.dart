@@ -35,7 +35,7 @@ class HomeView extends GetView<HomeController> {
                     icon: Icon(Icons.search, color: Colors.green),
                     onPressed: () {
                       // Navigasi ke halaman pencarian ketika ikon ditekan
-                      Get.toNamed(Routes.BOOK); // Pastikan Anda memiliki rute bernama 'SEARCH' dalam AppPages
+                      Get.toNamed(Routes.SEARCH); // Pastikan Anda memiliki rute bernama 'SEARCH' dalam AppPages
                     },
                   ),
                 ],

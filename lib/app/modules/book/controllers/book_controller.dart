@@ -8,10 +8,9 @@ import 'package:peminjam_perpustakaan_kelas_b/app/data/provider/api_provider.dar
 import '../../../data/model/response_book.dart';
 import '../../../routes/app_pages.dart';
 
-  class BookController extends GetxController with StateMixin<List<DataBuku>> {
+class BookController extends GetxController with StateMixin<List<DataBuku>> {
   //TODO: Implement BookController
   int selectedIndex = 1;
-
 
   @override
   void onInit() {
@@ -29,11 +28,11 @@ import '../../../routes/app_pages.dart';
     super.onClose();
   }
 
-  void changePage(int index){
+  void changePage(int index) {
     selectedIndex = index;
     update();
-    switch(index) {
-      case 0 :
+    switch (index) {
+      case 0:
         Get.offAllNamed(Routes.HOME);
         break;
       case 1:
@@ -45,13 +44,51 @@ import '../../../routes/app_pages.dart';
     }
   }
 
+  // Future<void> getData(String endpoint) async {
+  //   change(null, status: RxStatus.loading());
+  //   try {
+  //     final response = await ApiProvider.instance().get(endpoint);
+  //     if (response.statusCode == 200) {
+  //       if (endpoint == Endpoint.buku) {
+  //         final ResponseBook responseBook = ResponseBook.fromJson(response.data);
+  //         if (responseBook.data!.isEmpty) {
+  //           change(null, status: RxStatus.empty());
+  //         } else {
+  //           change(responseBook.data, status: RxStatus.success());
+  //         }
+  //       } else if (endpoint == Endpoint.kategoriRelasi) {
+  //         final ResponseKategoriRelasi responseKategoriRelasi = ResponseKategoriRelasi.fromJson(response.data);
+  //         if (responseKategoriRelasi.data!.isEmpty) {
+  //           change(null, status: RxStatus.empty());
+  //         } else {
+  //           change(responseKategoriRelasi.data, status: RxStatus.success());
+  //         }
+  //       }
+  //     } else {
+  //       change(null, status: RxStatus.error("Gagal mengambil data"));
+  //     }
+  //   } on DioException catch (e) {
+  //     if (e.response != null) {
+  //       if (e.response?.data != null) {
+  //         change(null,
+  //             status: RxStatus.error("${e.response?.data['message']}"));
+  //       }
+  //     } else {
+  //       change(null, status: RxStatus.error(e.message ?? ""));
+  //     }
+  //   } catch (e) {
+  //     change(null, status: RxStatus.error(e.toString()));
+  //   }
+  // }
+
   Future<void> getData() async {
     change(null, status: RxStatus.loading());
-    try{
-      final response = await ApiProvider.instance().get(Endpoint.buku);
+    try {
+      final response =
+          await ApiProvider.instance().get(Endpoint.buku);
       if (response.statusCode == 200) {
         final ResponseBook responseBook = ResponseBook.fromJson(response.data);
-        if(responseBook.data!.isEmpty){
+        if (responseBook.data!.isEmpty) {
           change(null, status: RxStatus.empty());
         } else {
           change(responseBook.data, status: RxStatus.success());
@@ -59,11 +96,11 @@ import '../../../routes/app_pages.dart';
       } else {
         change(null, status: RxStatus.error("Gagal mengambil data buku"));
       }
-
     } on DioException catch (e) {
-      if(e.response != null) {
-        if(e.response?.data != null){
-          change(null, status: RxStatus.error("${e.response?.data['message']}"));
+      if (e.response != null) {
+        if (e.response?.data != null) {
+          change(null,
+              status: RxStatus.error("${e.response?.data['message']}"));
         }
       } else {
         change(null, status: RxStatus.error(e.message ?? ""));
