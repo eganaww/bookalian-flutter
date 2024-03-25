@@ -53,7 +53,7 @@ class LoginController extends GetxController {
           await StorageProvider.write(
               StorageKey.UserID, responseLogin.data!.userID!.toString());
           await StorageProvider.write(StorageKey.status, "logged");
-          await StorageProvider.write(StorageKey.UserName, responseLogin!.data!.namaLengkap.toString());
+          await StorageProvider.write(StorageKey.UserName, responseLogin!.data!.username.toString());
           if (responseLogin.data!.role.toString() == 'user') {
             Get.offAllNamed(Routes.HOME);
           } else {
