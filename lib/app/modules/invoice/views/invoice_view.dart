@@ -17,13 +17,14 @@ class InvoiceView extends GetView<InvoiceController> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-               padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.00),
-              child: Text(
-                "Anda berhasil mengajukan peminjaman",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
+            Column(
+              children: [
+                SizedBox(
+                  height: 50,
+                ),
+                Text("Anda Berhasil",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                Text("Mengajukan Peminjaman!",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+              ],
             ),
             Container(
               margin: const EdgeInsets.all(20.0),
@@ -89,22 +90,40 @@ class InvoiceView extends GetView<InvoiceController> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text("Tanggal Pengembcmdalian"),
+                              Text("Tanggal Pengembalian"),
                               Text(Get.parameters['tgl_pengembalian']??''),
                             ],
                           ),
                         ],
                       ),
                     ),
-
                   ],
                 ),
               ),
-            ),Container(
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              child: Column(
+                children: [
+                  Text("Mohon Pergi ke Perpustakaan untuk",style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                  Text("verifikasi ulang.",style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               child: ElevatedButton(onPressed: () {
                 Get.offAllNamed(Routes.BOOK);
-              }, child: Text('Kembali')
-
+              }, child: Text('Kembali', style: TextStyle(color: Colors.white),
+              ),
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xff009E60), // Warna latar belakang
+                ),
               ),
             ),
           ],
