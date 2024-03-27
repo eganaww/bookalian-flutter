@@ -67,7 +67,7 @@ class HomeView extends GetView<HomeController> {
                       margin: EdgeInsets.all(10), // Menambahkan margin
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: Colors.grey, // Warna border
+                          color: Colors.white, // Warna border
                           width: 1, // Ketebalan border
                         ),
                         borderRadius: BorderRadius.circular(10), // Border radius untuk container
@@ -78,8 +78,8 @@ class HomeView extends GetView<HomeController> {
                           AssetImage("assets/img/Info-2.png"),
                           AssetImage("assets/img/Info-3.png"),
                         ],
-                        dotSize: 6,
-                        indicatorBgPadding: 5.0,
+                        dotSize: 0,
+                        indicatorBgPadding: 0,
                         // Menyesuaikan latar belakang carousel
                       ),
                     ),
