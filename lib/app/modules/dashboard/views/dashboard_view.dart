@@ -266,6 +266,16 @@ class DashboardView extends GetView<DashboardController> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Lakukan proses logout di sini
+        },
+        backgroundColor: Colors.red.shade800, // Warna background merah
+        child: Text(
+          'Logout',
+          style: TextStyle(color: Colors.white), // Warna teks putih
+        ),
+      ),
     );
   }
 }
