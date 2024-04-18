@@ -92,46 +92,46 @@ class DetailBookView extends GetView<DetailBookController> {
                       ),
                     ],
                   ),
-                  Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Ulasan',
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-                        ),
-                        SizedBox(height: MediaQuery.of(context).size.height,
-                        child: controller.obx((state) => ListView.builder(itemCount: state?.users?.length,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        padding: EdgeInsets.all(10), // Menambahkan padding sebesar 10 pada semua sisi
-                        decoration: BoxDecoration(
-                          color: Color(0xffF5F5F5),
-                          borderRadius: BorderRadius.circular(10), // Menambahkan border radius sebesar 10
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5), // Warna bayangan (shadow)
-                              spreadRadius: 5, // Penyebaran bayangan
-                              blurRadius: 7, // Radius blur
-                              offset: Offset(0, 3), // Offset (pergeseran) bayangan
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(state!.users?[index].username ?? '', style: TextStyle(color: Color(0xff009E60), fontWeight: FontWeight.bold, fontSize: 20),),
-                            SizedBox(height: 10),
-                            Text(state!.ulasanBukus?[index].ulasan ?? ''),
-                          ],
-                        ),
-                      );
-
-                    },
-                  )),)
-                      ],
-                    ),
-                  ),
+                  // Container(
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  //       Text(
+                  //         'Ulasan',
+                  //         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                  //       ),
+                  //       SizedBox(height: MediaQuery.of(context).size.height,
+                  //       child: controller.obx((state) => ListView.builder(itemCount: state?.users?.length,
+                  //   itemBuilder: (context, index) {
+                  //     return Container(
+                  //       padding: EdgeInsets.all(10), // Menambahkan padding sebesar 10 pada semua sisi
+                  //       decoration: BoxDecoration(
+                  //         color: Color(0xffF5F5F5),
+                  //         borderRadius: BorderRadius.circular(10), // Menambahkan border radius sebesar 10
+                  //         boxShadow: [
+                  //           BoxShadow(
+                  //             color: Colors.grey.withOpacity(0.5), // Warna bayangan (shadow)
+                  //             spreadRadius: 5, // Penyebaran bayangan
+                  //             blurRadius: 7, // Radius blur
+                  //             offset: Offset(0, 3), // Offset (pergeseran) bayangan
+                  //           ),
+                  //         ],
+                  //       ),
+                  //       child: Column(
+                  //         crossAxisAlignment: CrossAxisAlignment.start,
+                  //         children: [
+                  //           Text(state!.users?[index].username ?? '', style: TextStyle(color: Color(0xff009E60), fontWeight: FontWeight.bold, fontSize: 20),),
+                  //           SizedBox(height: 10),
+                  //           Text(state!.ulasanBukus?[index].ulasan ?? ''),
+                  //         ],
+                  //       ),
+                  //     );
+                  //
+                  //   },
+                  // )),)
+                  //     ],
+                  //   ),
+                  // ),
                 ],
               ),
             ),

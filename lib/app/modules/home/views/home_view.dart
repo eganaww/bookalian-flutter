@@ -86,10 +86,60 @@ class HomeView extends GetView<HomeController> {
                   ),
                 ),
               ],
-            )
+            ),
+            SizedBox(height: 20), // Beri jarak antara carousel dan kolom baru
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    Image.asset(
+                      "assets/img/icon-book.png",
+                      height: 100,
+                    ),
+                    Text(
+                      'Buku',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Image.asset(
+                      "assets/img/icon-koleksi.png",
+                      height: 100,
+                    ),
+                    Text(
+                      'Koleksi',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Image.asset(
+                      "assets/img/icon-history.png",
+                      height: 100,
+                    ),
+                    Text(
+                      'Riwayat',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ],
         ),
-
       bottomNavigationBar: GetBuilder<HomeController>(
         init: HomeController(),
         builder: (controller){

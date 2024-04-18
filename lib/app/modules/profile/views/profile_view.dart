@@ -31,27 +31,35 @@ class ProfileView extends GetView<ProfileController> {
           ),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Container(
-              child: Row(
-                children: [
-                  Column(
+            child: Column(
+              children: [
+                Container(
+                  child: Column(
                     children: [
-                      Text(
-                        'Nama Petugas',
-                        style: TextStyle(
-                            color: Color(0xff009E60),
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        'Ega Naww',
-                        style: TextStyle(fontSize: 20),
-                        textAlign: TextAlign.left,
+                      Row(
+                        children: [
+                          Column(
+                            children: [
+                              Text(
+                                'Nama Petugas',
+                                style: TextStyle(
+                                    color: Color(0xff009E60),
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                'Ega Naww',
+                                style: TextStyle(fontSize: 20),
+                                textAlign: TextAlign.left,
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],

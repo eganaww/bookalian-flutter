@@ -36,7 +36,7 @@ class DashboardView extends GetView<DashboardController> {
                         Column(
                           children: [
                             Text('12', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24, color: Colors.white), textAlign: TextAlign.left,),
-                            Text('Buku', style: TextStyle(fontSize: 18, color: Colors.white), textAlign: TextAlign.left,)
+                            Text('Buku   ', style: TextStyle(fontSize: 18, color: Colors.white), textAlign: TextAlign.left,)
                           ],
                         ),
                         SizedBox(width: 20),
@@ -66,7 +66,7 @@ class DashboardView extends GetView<DashboardController> {
                         Column(
                           children: [
                             Text('12', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24, color: Colors.white), textAlign: TextAlign.left,),
-                            Text('User', style: TextStyle(fontSize: 18, color: Colors.white), textAlign: TextAlign.left,)
+                            Text('User   ', style: TextStyle(fontSize: 18, color: Colors.white), textAlign: TextAlign.left,)
                           ],
                         ),
                         SizedBox(width: 20),
