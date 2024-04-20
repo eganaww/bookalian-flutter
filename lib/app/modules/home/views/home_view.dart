@@ -104,7 +104,9 @@ class HomeView extends GetView<HomeController> {
                       child: IconButton(
                         icon: const Icon(Icons.menu_book),
                         color: Colors.white,
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.offAllNamed(Routes.PEMINJAMAN);
+                        },
                       ),
                     ),
                     SizedBox(height: 10),

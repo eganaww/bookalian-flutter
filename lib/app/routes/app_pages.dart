@@ -57,11 +57,11 @@ class AppPages {
       page: () => const BookView(),
       binding: BookBinding(),
     ),
-    // GetPage(
-    //   name: _Paths.PEMINJAMAN,
-    //   page: () => const PeminjamanView(),
-    //   binding: PeminjamanBinding(),
-    // ),
+    GetPage(
+      name: _Paths.PEMINJAMAN,
+      page: () => const PeminjamanView(),
+      binding: PeminjamanBinding(),
+    ),
     GetPage(
       name: _Paths.ADD_PEMINJAMAN,
       page: () => const AddPeminjamanView(),
