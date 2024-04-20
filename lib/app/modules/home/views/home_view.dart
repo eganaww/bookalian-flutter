@@ -90,48 +90,92 @@ class HomeView extends GetView<HomeController> {
             SizedBox(height: 20), // Beri jarak antara carousel dan kolom baru
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      "assets/img/icon-book.png",
-                      height: 100,
+                    Ink(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      decoration: const ShapeDecoration(
+                        color: Color(0xff009E60),
+                        shape: CircleBorder(),
+                      ),
+                      child: IconButton(
+                        icon: const Icon(Icons.menu_book),
+                        color: Colors.white,
+                        onPressed: () {},
+                      ),
                     ),
-                    Text(
-                      'Buku',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                    SizedBox(height: 10),
+                    Container(
+                      width: 70,
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Data Pinjam',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ],
                 ),
                 Column(
                   children: [
-                    Image.asset(
-                      "assets/img/icon-koleksi.png",
-                      height: 100,
+                    Ink(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      decoration: const ShapeDecoration(
+                        color: Color(0xff009E60),
+                        shape: CircleBorder(),
+                      ),
+                      child: IconButton(
+                        icon: const Icon(Icons.bookmark),
+                        color: Colors.white,
+                        onPressed: () {},
+                      ),
                     ),
-                    Text(
-                      'Koleksi',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                    SizedBox(height: 10),
+                    Container(
+                      width: 70,
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Koleksi Anda',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ],
                 ),
                 Column(
                   children: [
-                    Image.asset(
-                      "assets/img/icon-history.png",
-                      height: 100,
+                    Ink(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      decoration: const ShapeDecoration(
+                        color: Color(0xff009E60),
+                        shape: CircleBorder(),
+                      ),
+                      child: IconButton(
+                        icon: const Icon(Icons.history),
+                        color: Colors.white,
+                        onPressed: () {},
+                      ),
                     ),
-                    Text(
-                      'Riwayat',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                    SizedBox(height: 10),
+                    Container(
+                      width: 70,
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Riwayat Pinjam',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ],

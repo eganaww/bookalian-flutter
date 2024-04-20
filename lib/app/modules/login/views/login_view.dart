@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/routes/app_pages.dart';
@@ -14,12 +13,11 @@ class LoginView extends GetView<LoginController> {
         title: const Text('Login'),
         centerTitle: true,
       ),*/
-      body: Center(
-        child: SingleChildScrollView(
+      body:SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Container(
             height: MediaQuery.of(context).size.height,
-            padding: EdgeInsets.symmetric(vertical: 20),
+            padding: EdgeInsets.symmetric(vertical: 40),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 stops: [0, 0.3],
@@ -130,7 +128,7 @@ class LoginView extends GetView<LoginController> {
             ),
           ),
         ),
-      ),
+
     );
   }
 }

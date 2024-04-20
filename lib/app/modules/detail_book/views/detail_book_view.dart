@@ -73,19 +73,35 @@ class DetailBookView extends GetView<DetailBookController> {
                             ),
                             SizedBox(height: 16), // Spacer
                             // Tombol Pinjam
-                            ElevatedButton(
-                              onPressed: () {
-                                Get.toNamed(Routes.ADD_PEMINJAMAN, parameters: {
-                                  'id': state?.bukuID.toString() ?? '',
-                                  'judul': state?.judul.toString() ?? '',
-                                });
-                              },
-                              style: ElevatedButton.styleFrom(
-                                primary: Color(
-                                    0xff1EAF7B), // Warna latar belakang hijau
-                                onPrimary: Colors.white, // Warna teks putih
-                              ),
-                              child: Text('Pinjam'),
+                            Row(
+                              children: [
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Get.toNamed(Routes.ADD_PEMINJAMAN, parameters: {
+                                      'id': state?.bukuID.toString() ?? '',
+                                      'judul': state?.judul.toString() ?? '',
+                                    });
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Color(
+                                        0xff3BB765), // Warna latar belakang hijau
+                                    onPrimary: Colors.white, // Warna teks putih
+                                  ),
+                                  child: Text('Pinjam'),
+                                ),
+                                Ink(
+                                  padding: EdgeInsets.symmetric(horizontal: 10),
+                                  decoration: const ShapeDecoration(
+                                    color: Colors.white,
+                                    shape: CircleBorder(),
+                                  ),
+                                  child: IconButton(
+                                    icon: const Icon(Icons.bookmark_border),
+                                    color: Color(0xff009E60),
+                                    onPressed: () {},
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),

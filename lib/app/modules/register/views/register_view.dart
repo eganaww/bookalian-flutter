@@ -16,6 +16,7 @@ class RegisterView extends GetView<RegisterController> {
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
+          margin: EdgeInsets.only(top: 30),
           padding: EdgeInsets.symmetric(vertical: 20),
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -38,7 +39,7 @@ class RegisterView extends GetView<RegisterController> {
                   ),
                   SizedBox(height: 10),
                   Container(
-                    margin: EdgeInsets.only(top: 30),
+                    margin: EdgeInsets.only(top: 40),
                     child: Text(
                       "Pendaftaran",
                       style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -142,7 +143,7 @@ class RegisterView extends GetView<RegisterController> {
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.only(bottom: 20),
+                            margin: EdgeInsets.only(bottom: 30),
                             child: TextField(
                               //obscureText: true,
                               controller: controller.passwordconfirmController,

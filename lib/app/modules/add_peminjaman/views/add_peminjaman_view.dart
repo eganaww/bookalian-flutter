@@ -37,7 +37,7 @@ class AddPeminjamanView extends GetView<AddPeminjamanController> {
                   controller: controller.tanggalPinjamController,
                   decoration:
                       InputDecoration(
-                        hintText: "Masukkan Tanggal Pinjam",
+                        hintText: "Masukkan Tanggal Pinjam (2024-02-26)",
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.black),
                         ),
@@ -56,7 +56,7 @@ class AddPeminjamanView extends GetView<AddPeminjamanController> {
                   controller: controller.tanggalKembaliController,
                   decoration:
                       InputDecoration(
-                        hintText: "Masukkan Tanggal Kembali",
+                        hintText: "Masukkan Tanggal Kembali (2024-02-28)",
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.black),
                         ),
