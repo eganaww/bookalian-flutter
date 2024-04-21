@@ -13,79 +13,153 @@ class BookView extends GetView<BookController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: SingleChildScrollView(
+        child: Column(
+            children: [
+        Container(
+        padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+        child: Row(
+          children: [
+            Expanded(
+              child: Text(
+                'Buku',
+                style: TextStyle(
+                  color: Color(0xff009E60),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                ),
+              ),
+            ),
+            IconButton(
+              icon: Icon(Icons.search, color: Colors.green),
+              onPressed: () {
+                Get.toNamed(Routes.SEARCH); // Navigasi ke halaman pencarian
+              },
+            ),
+          ],
+        ),
+      ),
+      SizedBox(height: 20),
+      Row(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    'Buku',
-                    style: TextStyle(
-                      color: Color(0xff009E60),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                    ),
+            margin: const EdgeInsets.only(left: 20),
+            child: Text(
+              "Rekomendasi",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+          )
+        ],
+      ),
+      Container(
+        height: 240,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: controller.obx((state) => ListView.builder(
+            itemCount: state?.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  // Navigasi ke halaman detail buku dengan mengirim parameter yang diperlukan
+                  Get.toNamed(
+                    Routes.DETAIL_BOOK,
+                    parameters: {
+                      'id': state![index].bukuID.toString(),
+                    },
+                  );
+                },
+                child: Container(
+                  margin: const EdgeInsets.only(right: 10),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 120,
+                        height: 200,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image:
+                            base64widget(state![index].cover ?? ''),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        state[index].judul ?? '',
+                        style: TextStyle(
+                            fontSize: 12, color: Colors.black),
+                      )
+                    ],
                   ),
                 ),
-                IconButton(
-                  icon: Icon(Icons.search, color: Colors.green),
-                  onPressed: () {
-                    Get.toNamed(Routes.SEARCH); // Navigasi ke halaman pencarian
-                  },
-                ),
-              ],
-            ),
-          ),
+              );
+            },
+          )),
+        ),
+      ),
+      SizedBox(height: 20,),
+      Row(
+        children: [
           Container(
-            height: 240,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: controller.obx((state) => ListView.builder(
-                    itemCount: state?.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return InkWell(
-                        onTap: () {
-                          // Navigasi ke halaman detail buku dengan mengirim parameter yang diperlukan
-                          Get.toNamed(
-                            Routes.DETAIL_BOOK,
-                            parameters: {
-                              'id': state![index].bukuID.toString(),
-                            },
-                          );
-                        },
-                        child: Container(
-                          margin: const EdgeInsets.only(right: 10),
-                          child: Column(
-                            children: [
-                              Container(
-                                width: 120,
-                                height: 200,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image:
-                                        base64widget(state![index].cover ?? ''),
-                                    fit: BoxFit.cover,
-                                  ),
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Text(
-                                state[index].judul ?? '',
-                                style: TextStyle(
-                                    fontSize: 12, color: Colors.black),
-                              )
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  )),
+            margin: const EdgeInsets.only(left: 20),
+            child: Text(
+              "Pelajaran",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
-          ),
+          )
+        ],
+      ),
+      Container(
+        height: 240,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: controller.obx((state) => ListView.builder(
+            itemCount: state?.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  // Navigasi ke halaman detail buku dengan mengirim parameter yang diperlukan
+                  Get.toNamed(
+                    Routes.DETAIL_BOOK,
+                    parameters: {
+                      'id': state![index].bukuID.toString(),
+                    },
+                  );
+                },
+                child: Container(
+                  margin: const EdgeInsets.only(right: 10),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 120,
+                        height: 200,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image:
+                            base64widget(state![index].cover ?? ''),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        state[index].judul ?? '',
+                        style: TextStyle(
+                            fontSize: 12, color: Colors.black),
+                      )
+                    ],
+                  ),
+                ),
+              );
+            },
+          )),
+        ),
+      ),
+
           // controller.obx((state) => ListView.builder(
           //       itemCount: state?.length,
           //       scrollDirection: Axis.vertical,
@@ -148,6 +222,7 @@ class BookView extends GetView<BookController> {
           //       },
           //     ))
         ],
+      ),
       ),
       bottomNavigationBar: GetBuilder<HomeController>(
         init: HomeController(),
