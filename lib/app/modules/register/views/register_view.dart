@@ -193,7 +193,7 @@ class RegisterView extends GetView<RegisterController> {
                                   child: Text("Masuk Disini!", style: TextStyle(
                                       color: Color(0xff3BB765)
                                   )), onTap: () {
-                                  Get.toNamed(Routes.LOGIN);
+                                  Get.offAllNamed(Routes.LOGIN);
                                 },),
                               ],
                             ),
