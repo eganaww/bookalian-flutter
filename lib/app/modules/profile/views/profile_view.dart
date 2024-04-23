@@ -87,7 +87,7 @@ class ProfileView extends GetView<ProfileController> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Lakukan proses logout di sini
+          controller.logout();
         },
         backgroundColor: Colors.red.shade800, // Warna background merah
         child: Text(

@@ -13,5 +13,6 @@ class Endpoint {
   static const String pinjam = "${baseUrlApi}peminjaman";
   static const String buku = "${baseUrlApi}buku";
   static const String kategoriRelasi = "${baseUrlApi}kategoribukurelasi";
+  static const String dashboard = "${baseUrlApi}dashboard";
 
 }

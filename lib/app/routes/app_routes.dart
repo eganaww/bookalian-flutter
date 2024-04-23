@@ -17,6 +17,9 @@ abstract class Routes {
   static const SEARCH = _Paths.SEARCH;
   static const RIWAYAT = _Paths.RIWAYAT;
   static const KOLEKSI = _Paths.KOLEKSI;
+  static const BOOK_PETUGAS = _Paths.BOOK_PETUGAS;
+  static const PEMINJAMAN_PETUGAS = _Paths.PEMINJAMAN_PETUGAS;
+  static const USER = _Paths.USER;
 }
 
 abstract class _Paths {
@@ -35,4 +38,7 @@ abstract class _Paths {
   static const SEARCH = '/search';
   static const RIWAYAT = '/riwayat';
   static const KOLEKSI = '/koleksi';
+  static const BOOK_PETUGAS = '/book-petugas';
+  static const PEMINJAMAN_PETUGAS = '/peminjaman-petugas';
+  static const USER = '/user';
 }

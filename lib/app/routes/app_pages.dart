@@ -4,6 +4,8 @@ import '../modules/add_peminjaman/bindings/add_peminjaman_binding.dart';
 import '../modules/add_peminjaman/views/add_peminjaman_view.dart';
 import '../modules/book/bindings/book_binding.dart';
 import '../modules/book/views/book_view.dart';
+import '../modules/book_petugas/bindings/book_petugas_binding.dart';
+import '../modules/book_petugas/views/book_petugas_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/detail_book/bindings/detail_book_binding.dart';
@@ -18,6 +20,8 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/peminjaman/bindings/peminjaman_binding.dart';
 import '../modules/peminjaman/views/peminjaman_view.dart';
+import '../modules/peminjaman_petugas/bindings/peminjaman_petugas_binding.dart';
+import '../modules/peminjaman_petugas/views/peminjaman_petugas_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/register/bindings/register_binding.dart';
@@ -28,6 +32,8 @@ import '../modules/search/bindings/search_binding.dart';
 import '../modules/search/views/search_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
+import '../modules/user/bindings/user_binding.dart';
+import '../modules/user/views/user_view.dart';
 
 part 'app_routes.dart';
 
@@ -106,6 +112,21 @@ class AppPages {
       name: _Paths.KOLEKSI,
       page: () => const KoleksiView(),
       binding: KoleksiBinding(),
+    ),
+    GetPage(
+      name: _Paths.BOOK_PETUGAS,
+      page: () => const BookPetugasView(),
+      binding: BookPetugasBinding(),
+    ),
+    GetPage(
+      name: _Paths.PEMINJAMAN_PETUGAS,
+      page: () => const PeminjamanPetugasView(),
+      binding: PeminjamanPetugasBinding(),
+    ),
+    GetPage(
+      name: _Paths.USER,
+      page: () => const UserView(),
+      binding: UserBinding(),
     ),
   ];
 }

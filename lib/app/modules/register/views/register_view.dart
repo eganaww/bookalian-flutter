@@ -16,6 +16,7 @@ class RegisterView extends GetView<RegisterController> {
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
+          // height: MediaQuery.of(context).size.height,
           margin: EdgeInsets.only(top: 30),
           padding: EdgeInsets.symmetric(vertical: 20),
           decoration: BoxDecoration(

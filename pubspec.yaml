@@ -13,13 +13,20 @@ dependencies:
   get_storage: ^2.1.1 # untuk session/local storage
   flutter_native_splash: 2.3.7
   another_carousel_pro: ^1.0.2
+
   flutter: 
     sdk: flutter
 
-dev_dependencies: 
+dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
   flutter_lints: ^2.0.0
   flutter_test: 
     sdk: flutter
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/img/logo_bookalian.png"
 
 flutter: 
   uses-material-design: true

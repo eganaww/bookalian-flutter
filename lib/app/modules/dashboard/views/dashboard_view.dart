@@ -241,34 +241,37 @@ class DashboardView extends GetView<DashboardController> {
               title: const Text('Dashboard'),
               onTap: () {
                 // Update UI based on item selected
-                Navigator.pop(context); // Close the drawer
+                Get.toNamed(Routes.DASHBOARD); // Close the drawer
               },
             ),
             ListTile(
               title: const Text('Buku'),
               onTap: () {
-                Navigator.pop(context);
+                // Navigator.pop(context);
+                Get.toNamed(Routes.BOOK_PETUGAS);
               },
             ),
             ListTile(
               title: const Text('Peminjaman'),
               onTap: () {
-                Navigator.pop(context);
+                // Navigator.pop(context);
+                Get.toNamed(Routes.PEMINJAMAN_PETUGAS);
               },
             ),
-            ListTile(
-              title: const Text('Laporan'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
+            if (controller.role == 'admin') // Show additional menu for admin role
+              ListTile(
+                title: const Text('User'),
+                onTap: () {
+                  Get.toNamed(Routes.USER);
+                },
+              ),
             // Add more ListTile widgets for additional items
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Lakukan proses logout di sini
+          controller.logout();
         },
         backgroundColor: Colors.red.shade800, // Warna background merah
         child: Text(

@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/data/provider/storage_provider.dart';
+import 'package:peminjam_perpustakaan_kelas_b/app/routes/app_pages.dart';
 
 class DashboardController extends GetxController {
   //TODO: Implement DashboardController
@@ -22,4 +23,9 @@ class DashboardController extends GetxController {
   }
 
   void increment() => count.value++;
+
+  void logout() {
+    StorageProvider.clearAll();
+    Get.offAllNamed(Routes.LOGIN);
+  }
 }
