@@ -38,7 +38,7 @@ class BookPetugasController extends GetxController with StateMixin<List<DataBuku
 
   delete(int? bukuID) async {
     try {
-      final response = await ApiProvider.instance().delete("${Endpoint.buku}/id$bukuID");
+      final response = await ApiProvider.instance().delete("${Endpoint.buku}/$bukuID");
       QuickAlert.show(
           context: Get.context!,
           type: QuickAlertType.confirm,
@@ -54,7 +54,7 @@ class BookPetugasController extends GetxController with StateMixin<List<DataBuku
                 type: QuickAlertType.success,
                 confirmBtnText: 'Ok',
                 title: 'Berhasil',
-                text: 'Berhasil Menghapus Koleksi',
+                text: 'Berhasil Menghapus Buku',
                 titleColor: Colors.green,
               );
             } else {

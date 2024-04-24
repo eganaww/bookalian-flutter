@@ -33,44 +33,53 @@ class AddPeminjamanView extends GetView<AddPeminjamanController> {
                 SizedBox(
                   height: 30,
                 ),
-                TextFormField(
-                  controller: controller.tanggalPinjamController,
-                  decoration:
-                      InputDecoration(
-                        hintText: "Masukkan Tanggal Pinjam (2024-02-26)",
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black),
+                Container(
+                  padding: EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        controller: controller.tanggalPinjamController,
+                        decoration:
+                        InputDecoration(
+                          hintText: "Masukkan Tanggal Pinjam (2024-02-26)",
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Color(0xff009E60),width: 2),
+                          ),
                         ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xff009E60),width: 2),
-                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Tanggal Pinjam tidak boleh kosong";
+                          }
+                          return null;
+                        },
                       ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Tanggal Pinjam tidak boleh kosong";
-                    }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  controller: controller.tanggalKembaliController,
-                  decoration:
-                      InputDecoration(
-                        hintText: "Masukkan Tanggal Kembali (2024-02-28)",
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black),
+                      SizedBox(height: 20,),
+                      TextFormField(
+                        controller: controller.tanggalKembaliController,
+                        decoration:
+                        InputDecoration(
+                          hintText: "Masukkan Tanggal Kembali (2024-02-28)",
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Color(0xff009E60),width: 2),
+                          ),
                         ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xff009E60),width: 2),
-                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Tanggal Kembali tidak boleh kosong";
+                          }
+                          return null;
+                        },
                       ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Tanggal Kembali tidak boleh kosong";
-                    }
-                    return null;
-                  },
+                    ],
+                  ),
                 ),
+                
                 SizedBox(
                   height: 40,
                 ),

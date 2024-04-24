@@ -73,19 +73,23 @@ class BookView extends GetView<BookController> {
                   margin: const EdgeInsets.only(right: 10),
                   child: Column(
                     children: [
-                      Container(
-                        width: 120,
-                        height: 200,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image:
-                            base64widget(state![index].cover ?? ''),
-                            fit: BoxFit.cover,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white,
-                        ),
+                    Container(
+                    width: 120,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      image: state![index].cover != null && state![index].cover != 'NONE'
+                          ? DecorationImage(
+                        image: base64widget(state![index].cover!),
+                        fit: BoxFit.cover,
+                      )
+                          : DecorationImage(
+                        image: AssetImage('assets/img/not-found.png'),
+                        fit: BoxFit.cover,
                       ),
+                    ),
+                    ),
                       Text(
                         state[index].judul ?? '',
                         style: TextStyle(
@@ -137,13 +141,17 @@ class BookView extends GetView<BookController> {
                         width: 120,
                         height: 200,
                         decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image:
-                            base64widget(state![index].cover ?? ''),
-                            fit: BoxFit.cover,
-                          ),
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white,
+                          image: state![index].cover != null && state![index].cover != 'NONE'
+                              ? DecorationImage(
+                            image: base64widget(state![index].cover!),
+                            fit: BoxFit.cover,
+                          )
+                              : DecorationImage(
+                            image: AssetImage('assets/img/not-found.png'),
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                       Text(

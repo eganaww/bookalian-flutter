@@ -39,7 +39,7 @@ class AddPeminjamanController extends GetxController {
       FocusScope.of(Get.context!).unfocus();
       if (formKey.currentState!.validate()) {
         final response =
-            await ApiProvider.instance().post(Endpoint.pinjam, data: {
+            await ApiProvider.instance().post(Endpoint.peminjaman, data: {
           "UserID": int.parse(StorageProvider.read(StorageKey.UserID)),
           "BukuID": int.parse(Get.parameters['id'].toString()),
           "TanggalPeminjaman": tanggalPinjamController.text.toString(),

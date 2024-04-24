@@ -31,36 +31,92 @@ class ProfileView extends GetView<ProfileController> {
           ),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Column(
+            child: controller.obx((state) => Column(
               children: [
+                SizedBox(height: 15,),
                 Container(
+                  width: 350,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Column(
-                            children: [
-                              Text(
-                                'Nama Petugas',
-                                style: TextStyle(
-                                    color: Color(0xff009E60),
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                'Ega Naww',
-                                style: TextStyle(fontSize: 20),
-                                textAlign: TextAlign.left,
-                              ),
-                            ],
+                          Text(
+                            'Nama Lengkap',
+                            style: TextStyle(
+                                color: Color(0xff009E60),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            '${state?.namaLengkap}',
+                            style: TextStyle(fontSize: 20),
+                            textAlign: TextAlign.left,
                           ),
                         ],
                       ),
+                      SizedBox(height: 20,),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Username',
+                            style: TextStyle(
+                                color: Color(0xff009E60),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            '${state?.username}',
+                            style: TextStyle(fontSize: 20),
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 20,),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'E-Mail',
+                            style: TextStyle(
+                                color: Color(0xff009E60),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            '${state?.email}',
+                            style: TextStyle(fontSize: 20),
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 20,),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Alamat',
+                            style: TextStyle(
+                                color: Color(0xff009E60),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            '${state?.alamat}',
+                            style: TextStyle(fontSize: 20),
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 20,),
+
                     ],
                   ),
                 ),
               ],
-            ),
+            ),)
           ),
         ],
       ),
@@ -80,7 +136,8 @@ class ProfileView extends GetView<ProfileController> {
             items: [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Beranda'),
               BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Buku'),
-              BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.person), label: 'Profile'),
             ],
           );
         },

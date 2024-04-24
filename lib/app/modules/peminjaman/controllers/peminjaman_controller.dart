@@ -1,19 +1,19 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:peminjam_perpustakaan_kelas_b/app/data/model/response_peminjaman.dart';
+import 'package:peminjam_perpustakaan_kelas_b/app/data/model/response_peminjaman_user.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/data/provider/storage_provider.dart';
 
 import '../../../data/constant/endpoint.dart';
 import '../../../data/provider/api_provider.dart';
 
-class PeminjamanController extends GetxController with StateMixin<List<DataPinjam>> {
+class PeminjamanController extends GetxController with StateMixin<List<DataPeminjamanUser>> {
   //TODO: Implement PeminjamanController
 
   final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
-    getPinjam();
+    getData();
   }
 
   @override
@@ -27,16 +27,16 @@ class PeminjamanController extends GetxController with StateMixin<List<DataPinja
   }
 
 
-  getPinjam() async {
+  getData() async {
     change(null, status: RxStatus.loading());
     try {
-      final response = await ApiProvider.instance().get(Endpoint.pinjam+"/${StorageProvider.read(StorageKey.UserID)}" );
+      final response = await ApiProvider.instance().get(Endpoint.peminjaman+"/${StorageProvider.read(StorageKey.UserID)}" );
       if (response.statusCode == 200) {
-        final ResponsePeminjaman responseBook = ResponsePeminjaman.fromJson(response.data);
-        if (responseBook.data!. isEmpty) {
+        final ResponsePeminjamanUser responsePinjam = ResponsePeminjamanUser.fromJson(response.data);
+        if (responsePinjam.data!. isEmpty) {
           change(null, status: RxStatus.empty());
         } else {
-          change(responseBook.data, status: RxStatus.success());
+          change(response.data, status: RxStatus.success());
         }
       } else {
         change(null, status: RxStatus.error("Gagal mengambil data"));

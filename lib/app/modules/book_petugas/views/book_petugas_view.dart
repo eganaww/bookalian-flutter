@@ -48,7 +48,7 @@ class BookPetugasView extends GetView<BookPetugasController> {
                   padding: const EdgeInsets.all(15.0),
                   child: Card(
                     child: Container(
-                      height: 250,
+                      height: 175,
                       padding: EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         color: Colors.white38,
@@ -63,8 +63,8 @@ class BookPetugasView extends GetView<BookPetugasController> {
                         children: [
                           SizedBox(width: 20),
                           Container(
-                            width: 100,
-                            height: 150,
+                            width: 75,
+                            height: 100,
                             child: FittedBox(
                               fit: BoxFit.fill,
                               child: state[index].cover == 'NONE'
@@ -83,11 +83,12 @@ class BookPetugasView extends GetView<BookPetugasController> {
                                 ),
                                 Text(
                                   "Pengarang  : ${state[index].penulis}",
+                                  style: TextStyle(fontSize: 10),
                                 ),
                                 Text(
                                   "Penerbit   : ${state[index].penerbit}",
+                                  style: TextStyle(fontSize: 10),
                                 ),
-                                SizedBox(height: 40),
                                 Container(
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.end,
@@ -107,7 +108,7 @@ class BookPetugasView extends GetView<BookPetugasController> {
                                         style: ButtonStyle(
                                           backgroundColor: MaterialStateProperty.all<Color>(Colors.red), // Ubah warna latar belakang
                                           foregroundColor: MaterialStateProperty.all<Color>(Colors.white), // Ubah warna teks
-                                          minimumSize: MaterialStateProperty.all<Size>(Size(50.0, 40.0)), // Mengatur tinggi minimum
+                                          minimumSize: MaterialStateProperty.all<Size>(Size(20.0, 30.0)), // Mengatur tinggi minimum
                                           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                             RoundedRectangleBorder(
                                               borderRadius: BorderRadius.circular(15.0),

@@ -44,7 +44,7 @@ class DashboardView extends GetView<DashboardController> {
                           children: [
                             Icon(
                               Icons.book,
-                              size: 57,
+                              size: 34,
                               color: Color(0xff264870),// Ubah ukuran ikon sesuai kebutuhan
                             ),
                           ],
@@ -74,7 +74,7 @@ class DashboardView extends GetView<DashboardController> {
                           children: [
                             Icon(
                               Icons.supervisor_account_rounded,
-                              size: 57,
+                              size: 34,
                               color: Color(0xff751C51),// Ubah ukuran ikon sesuai kebutuhan
                             ),
                           ],
@@ -110,7 +110,7 @@ class DashboardView extends GetView<DashboardController> {
                           children: [
                             Icon(
                               Icons.verified,
-                              size: 57,
+                              size: 34,
                               color: Color(0xff866B0C),// Ubah ukuran ikon sesuai kebutuhan
                             ),
                           ],
@@ -140,7 +140,7 @@ class DashboardView extends GetView<DashboardController> {
                           children: [
                             Icon(
                               Icons.featured_play_list_rounded,
-                              size: 57,
+                              size: 34,
                               color: Color(0xff196E27),// Ubah ukuran ikon sesuai kebutuhan
                             ),
                           ],
@@ -176,7 +176,7 @@ class DashboardView extends GetView<DashboardController> {
                           children: [
                             Icon(
                               Icons.timelapse,
-                              size: 57,
+                              size: 34,
                               color: Color(0xff2D2D2D),// Ubah ukuran ikon sesuai kebutuhan
                             ),
                           ],
@@ -206,7 +206,7 @@ class DashboardView extends GetView<DashboardController> {
                           children: [
                             Icon(
                               Icons.dangerous,
-                              size: 57,
+                              size: 34,
                               color: Color(0xff841E1E),// Ubah ukuran ikon sesuai kebutuhan
                             ),
                           ],
